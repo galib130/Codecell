@@ -30,7 +30,7 @@ int main()
         {
             break;
         }
-        system("cls");
+        system("cls");  // this is a very bad way to do this and everybody hates it.
 	}
 	return 0;
 }
