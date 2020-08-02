@@ -614,7 +614,7 @@ void Bookkeeper::read_Staff_in_file()
 	{
 		string key_string;
 
-		char fname[10];
+		char fname[100];
 		if(!getline (read_executed, key_string))
 			break;
 		strcpy(fname,key_string.c_str());
@@ -703,7 +703,7 @@ void Bookkeeper::read_Guard_in_file()
 	{
 		string key_string;
 
-		char fname[10];
+		char fname[100];
 		if(!getline (read_executed, key_string))
 			break;
 		strcpy(fname,key_string.c_str());
@@ -799,7 +799,7 @@ void Bookkeeper::read_To_be_Executed_from_file()
 	{
 		string key_string;
 
-		char fname[10];
+		char fname[100];
 		if(!getline (read_executed, key_string))
 			break;
 		strcpy(fname,key_string.c_str());
@@ -956,7 +956,7 @@ void Bookkeeper::read_maximum_security_prisoner()
 	{
 		string key_string;
 
-		char fname[10];
+		char fname[100];
 		if(!getline (read_executed, key_string))
 			break;
 		strcpy(fname,key_string.c_str());
@@ -1096,6 +1096,8 @@ void Bookkeeper::read_maximum_security_prisoner()
 		strcpy(execution_date,key_string.c_str());*/
 
 		//getline (read_executed, key_string);
+
+		getline (read_executed, key_string);
 
 		Maximum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
 
@@ -1113,7 +1115,7 @@ void Bookkeeper::read_medium_security_prisoner()
 	{
 		string key_string;
 
-		char fname[10];
+		char fname[100];
 		if(!getline (read_executed, key_string))
 			break;
 		strcpy(fname,key_string.c_str());
@@ -1254,6 +1256,7 @@ void Bookkeeper::read_medium_security_prisoner()
 
 		//getline (read_executed, key_string);
 
+		getline (read_executed, key_string);
 		Medium_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
 
 		P1.get_prisoner_info();
@@ -1270,7 +1273,7 @@ void Bookkeeper::read_minimum_security_prisoner()
 	{
 		string key_string;
 
-		char fname[10];
+		char fname[100];
 		if(!getline (read_executed, key_string))
 			break;
 		strcpy(fname,key_string.c_str());
@@ -1411,6 +1414,7 @@ void Bookkeeper::read_minimum_security_prisoner()
 
 		//getline (read_executed, key_string);
 
+		getline (read_executed, key_string);
 		Minimum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
 
 		P1.get_prisoner_info();
