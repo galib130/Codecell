@@ -13,6 +13,7 @@
 #include <string>
 #include <cstring>
 #include<iostream>
+#include<limits>
 using namespace std;
 void Bookkeeper::Open_book()
 {
@@ -84,9 +85,14 @@ void Bookkeeper::input_Guard()
 	std::cout<<"\nEnter Last Name: ";
 	char lname[10];
 	cin>>lname;
-	std::cout<<"\nAge: ";
 	int A;
-	cin>>A;
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nAge (Integer values): " && !(std::cin >> A))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 	std::cout<<"\nGender: ";
 	char g[10];
 	cin>>g;
@@ -132,13 +138,22 @@ void Bookkeeper::input_Guard()
 	std::cout<<"\nEnter psyche evaluation: ";
 	char psyche_evaluation[30];
 	gets(psyche_evaluation);
-	std::cout<<"\nEnter Salary: ";
 	double salary;
-	getchar();
-	cin>>salary;
-	std::cout<<"\nEnter Number of days of experience: ";
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nEnter Salary (Double values): " && !(std::cin >> salary))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 	int experience;
-	cin>>experience;
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nEnter Number of days of experience (Integer values): " && !(std::cin >> experience))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 
 	Guards P1(fname,lname,A,g,ad,p, o,hs,r,	id, unit, rank,shift,post,ammunition_status,psyche_evaluation, salary, experience);
 	write_Guard_in_file(P1);
@@ -152,9 +167,14 @@ void Bookkeeper::input_Staff()
 	std::cout<<"\nEnter Last Name: ";
 	char lname[10];
 	cin>>lname;
-	std::cout<<"\nAge: ";
 	int A;
-	cin>>A;
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nAge (Integer values): " && !(std::cin >> A))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 	std::cout<<"\nGender: ";
 	char g[10];
 	cin>>g;
@@ -199,13 +219,22 @@ void Bookkeeper::input_Staff()
 	std::cout<<"\nEnter psyche evaluation: ";
 	char psyche[30];
 	gets(psyche);
-	std::cout<<"\nEnter Salary: ";
 	double salary;
-	getchar();
-	cin>>salary;
-	std::cout<<"\nEnter Number of days of experience: ";
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nEnter Salary (Double values): " && !(std::cin >> salary))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 	int experience;
-	cin>>experience;
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nEnter Number of days of experience (Integer values): " && !(std::cin >> experience))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 
 
 	Staff P1(fname,lname,A, g,ad,p,o,hs,r,id,rank,Profession, shift,  psyche,requests, experience,salary);
@@ -217,14 +246,19 @@ void Bookkeeper::input_Staff()
 void Bookkeeper::input_Prisoner()
 {
 	std::cout<<"\nEnter First Name: ";
-	char fname[10];
+	char fname[20];
 	cin>>fname;
 	std::cout<<"\nEnter Last Name: ";
-	char lname[10];
+	char lname[20];
 	cin>>lname;
-	std::cout<<"\nAge: ";
 	int A;
-	cin>>A;
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nAge (Integer values): " && !(std::cin >> A))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 	std::cout<<"\nGender: ";
 	char g[10];
 	cin>>g;
@@ -277,8 +311,13 @@ void Bookkeeper::input_Prisoner()
 	std::cout<<"\nEnter Staff statement: ";
 	gets(Staff_statement);
 	int solitary_confinement_visits;
-	std::cout<<"\nSolitary Confinement visits: ";
-	cin>>solitary_confinement_visits;
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nSolitary Confinement visits (Integer values): " && !(std::cin >> solitary_confinement_visits))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 	getchar();
 	char Overall_evaluation[150];
 	std::cout<<"\nEnter Overall Evaluation: ";
@@ -308,8 +347,13 @@ void Bookkeeper::input_Prisoner()
 	std::cout<<"\nEnter Conviction date: ";
 	gets(Conviction_date);
 	int Bail_amount;
-	std::cout<<"\nBail amount: ";
-	cin>>Bail_amount;
+	/**For not letting the user input anything other than the intended output*/
+	while (std::cout << "\nBail amount (Integer values): " && !(std::cin >> solitary_confinement_visits))
+    {
+        std::cin.clear(); //clears bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
+        std::cout << "Invalid input. Try again.\n";
+    }
 	char Appeal_for_release_status[15];
 	std::cout<<"\nAppeal for release status: ";
 	getchar();
@@ -321,7 +365,7 @@ void Bookkeeper::input_Prisoner()
 	std::cout<<"\nEnter prescription: ";
 	gets(prescription);
 	char Visiting_status[40];
-	std::cout<<"Enter visiting status: ";
+	std::cout<<"\nEnter visiting status: ";
 	gets(Visiting_status);
 
 	if(!strcmp(Sentence,"Death Sentence")||!strcmp(Sentence,"Death sentence"))
