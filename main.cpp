@@ -13,6 +13,7 @@
 #include <string>
 #include <cstring>
 #include<iostream>
+#include<windows.h>
 
 using namespace std;
 
@@ -26,9 +27,10 @@ int main()
 		char x;
 		cin>>x;
 		if(x=='n')
-			break;
-		else
-			continue;
+        {
+            break;
+        }
+        system("cls");
 	}
 	return 0;
 }

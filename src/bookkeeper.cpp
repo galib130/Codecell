@@ -80,10 +80,10 @@ void Bookkeeper::Open_book()
 void Bookkeeper::input_Guard()
 {
 	std::cout<<"\nEnter First Name: ";
-	char fname[10];
+	char fname[20];
 	cin>>fname;
 	std::cout<<"\nEnter Last Name: ";
-	char lname[10];
+	char lname[20];
 	cin>>lname;
 	int A;
 	/**For not letting the user input anything other than the intended output*/
@@ -162,10 +162,10 @@ void Bookkeeper::input_Guard()
 void Bookkeeper::input_Staff()
 {
 	std::cout<<"\nEnter First Name: ";
-	char fname[10];
+	char fname[20];
 	cin>>fname;
 	std::cout<<"\nEnter Last Name: ";
-	char lname[10];
+	char lname[20];
 	cin>>lname;
 	int A;
 	/**For not letting the user input anything other than the intended output*/
