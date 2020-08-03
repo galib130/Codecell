@@ -13,7 +13,7 @@ Staff::Staff(char* fname,char* lname,int A,char* g,char* ad,char* p,char* o,char
 }
 
 //Staff Getters
-
+//ok branching herer
 char* Staff::getstaff_id()
 {
 	return staff_id;

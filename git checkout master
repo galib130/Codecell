@@ -1,0 +1,53 @@
+[33mcommit e244c38b7718cec2e2f16ac148f37fec9934aaea[m[33m ([m[1;36mHEAD -> [m[1;32msearch[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 7755cb9 2a33386
+Author: galib130 <55668404+galib130@users.noreply.github.com>
+Date:   Mon Aug 3 10:36:42 2020 +0600
+
+    Merge pull request #3 from galib130/fix-try_catching
+    
+    Fix try catching
+
+[33mcommit 2a3338646a0809cfffe229358893dcb99b930867[m
+Author: ishmamt <55696609+ishmamt@users.noreply.github.com>
+Date:   Mon Aug 3 00:34:21 2020 +0600
+
+    bugs fixed
+
+[33mcommit 6786f9b83ddb3fe6de326d696eb9f788cd2f12df[m
+Author: ishmamt <55696609+ishmamt@users.noreply.github.com>
+Date:   Mon Aug 3 00:33:10 2020 +0600
+
+    added screen clearing after before each new command
+
+[33mcommit 1aa592f0eaa1e031ef7407148acbd0a0c2611ee1[m
+Author: ishmamt <55696609+ishmamt@users.noreply.github.com>
+Date:   Mon Aug 3 00:23:09 2020 +0600
+
+    added try catch mechanism
+
+[33mcommit 7755cb92620e56fc873f67b4267730d1dd155852[m
+Merge: 3911cdb eecee1e
+Author: Ishmam Tashdeed <ishmam.tashdeed13@gmail.com>
+Date:   Sun Aug 2 23:02:56 2020 +0600
+
+    Merge pull request #2 from galib130/prisoner_read_solved
+    
+    Prisoner read solved
+
+[33mcommit eecee1e89018c7fa1c226609025b850461d7b530[m
+Author: Bashir <bashirhossain@iut-dhaka.edu>
+Date:   Sun Aug 2 20:12:49 2020 +0600
+
+    Fixed the reading problems of mainly prisoner class (Other classes too)
+
+[33mcommit 4fb28f430f65bbe3eba5e5b8fbfbea2d81123ced[m
+Author: ishmamt <55696609+ishmamt@users.noreply.github.com>
+Date:   Sat Aug 1 11:25:02 2020 +0600
+
+    Commented out lines that may be the cause of the error.
+
+[33mcommit 3911cdb35e559dffe018c246a4787bec694e2f5b[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: galib130 <galibshams16@gmail.com>
+Date:   Fri Jul 31 13:53:40 2020 +0600
+
+    first commit
