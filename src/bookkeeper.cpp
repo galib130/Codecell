@@ -14,6 +14,7 @@
 #include <cstring>
 #include<iostream>
 #include<limits>
+#include<algorithm>
 using namespace std;
 void Bookkeeper::Open_book()
 {
@@ -73,6 +74,30 @@ void Bookkeeper::Open_book()
 	}
 }
 
+// comparison functions
+bool lowerCompare(char s[], string toBeCompared)
+{
+    string temp = s;
+    transform(temp.begin(), temp.end(), temp.begin(), ::tolower);  // converts all chars to lowercase
+    return temp == toBeCompared;
+}
+
+bool isIn(char crime[], string cl[], int n)  // checks if crime is in list
+{
+    string crimeList[n];
+    for(int i = 0; i < n; i++)
+    {
+        crimeList[i] = cl[i];
+    }
+    for(int i = 0; i < n; i++)
+    {
+        if(crime == crimeList[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
 
 
 //Inputters
@@ -348,7 +373,7 @@ void Bookkeeper::input_Prisoner()
 	gets(Conviction_date);
 	int Bail_amount;
 	/**For not letting the user input anything other than the intended output*/
-	while (std::cout << "\nBail amount (Integer values): " && !(std::cin >> solitary_confinement_visits))
+	while (std::cout << "\nBail amount (Integer values): " && !(std::cin >> Bail_amount))
     {
         std::cin.clear(); //clears bad input flag
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discards problematic input stored in buffer
@@ -368,7 +393,14 @@ void Bookkeeper::input_Prisoner()
 	std::cout<<"\nEnter visiting status: ";
 	gets(Visiting_status);
 
-	if(!strcmp(Sentence,"Death Sentence")||!strcmp(Sentence,"Death sentence"))
+
+    /**List of crimes for easier & flexible classification*/
+    /**These lists are not comprehensive. Pls add more crimes*/
+    string whiteCollarCrimes[10] = {"fraud", "embezzlement", "bribery", "money laundering", "tax evasion"};
+    string lessViolentCrimes[10] = {"selling narcotics", "drunk driving", "hit and run", "theft", "possession of narcotics"};
+    string violentCrimes[10] = {"murder", "rape", "assault", "armed robbery", "human trafficking"};
+
+	if(lowerCompare(Sentence, "death sentence"))
 	{
 		char last_meal[30];
 		std::cout<<"\nRequested last meal: ";
@@ -386,7 +418,7 @@ void Bookkeeper::input_Prisoner()
 		return;
 	}
 
-	else if(!strcmp(Crime,"White Collar Crimes")&&!strcmp(g,"Male"))
+	else if(isIn(Crime, whiteCollarCrimes, sizeof(whiteCollarCrimes) / sizeof(whiteCollarCrimes[0])) && !strcmp(g,"Male"))
 	{
 		char Location_of_cell[11] = "North Wing";
 
@@ -397,7 +429,7 @@ void Bookkeeper::input_Prisoner()
 		return;
 	}
 
-	else if(!strcmp(Crime,"Violent Crimes")&&!strcmp(g,"Male"))
+	else if(isIn(Crime, violentCrimes, sizeof(violentCrimes) / sizeof(violentCrimes[0]))&&!strcmp(g,"Male"))
 	{
 		char Location_of_cell[11] = "South Wing";
 
@@ -408,7 +440,7 @@ void Bookkeeper::input_Prisoner()
 		return;
 	}
 
-	else if(!strcmp(Crime,"Lesser Violent Crimes")&&!strcmp(g,"Male"))
+	else if(isIn(Crime, lessViolentCrimes, sizeof(lessViolentCrimes) / sizeof(lessViolentCrimes[0]))&&!strcmp(g,"Male"))
 	{
 		char Location_of_cell[11] = "East Wing";
 
@@ -418,8 +450,50 @@ void Bookkeeper::input_Prisoner()
 
 		return;
 	}
-}
 
+	else
+    {
+        //crime is not in list so defaults to white collar crimes
+        std::cout<<"\n\nThe crime is not listed in database.";
+        char Location_of_cell[11];
+        std::cout<<"\nEnter Location of cell: ";
+        gets(Location_of_cell);
+
+        if(lowerCompare(Location_of_cell, "north wing"))
+        {
+            strcpy(Location_of_cell, "North Wing");
+            Minimum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
+            P1.get_prisoner_info();
+            write_minimum_security_prisoner(P1);
+            return;
+        }
+        else if(lowerCompare(Location_of_cell, "south wing"))
+        {
+            strcpy(Location_of_cell, "South Wing");
+            Maximum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
+            P1.get_prisoner_info();
+            write_maximum_security_prisoner(P1);
+            return;
+        }
+        else if(lowerCompare(Location_of_cell, "east wing"))
+        {
+            strcpy(Location_of_cell, "East Wing");
+            Medium_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
+            P1.get_prisoner_info();
+            write_medium_security_prisoner(P1);
+            return;
+        }
+        else
+        {
+            // defaults to north wing
+            strcpy(Location_of_cell, "North Wing");
+            Minimum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
+            P1.get_prisoner_info();
+            write_minimum_security_prisoner(P1);
+            return;
+        }
+    }
+}
 
 //Writers
 void Bookkeeper::write_Staff_in_file(Staff P1)

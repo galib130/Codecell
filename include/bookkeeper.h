@@ -8,6 +8,7 @@
 #include"Maximum_security_prisoner.h"
 #include"medium_security_prisoner.h"
 #include"minimum_security_prisoner.h"
+#include<string>
 
 
 class Bookkeeper
@@ -19,6 +20,9 @@ class Bookkeeper
 	void input_Prisoner();
 	void input_Staff();
 	void input_Guard();
+	//checkers
+	//bool lowerCompare(char s[], std::string toBeCompared);
+	//bool isIn(char crime[], std::string cl[], int n);
 	//writers
 	void write_Staff_in_file(Staff P1);
 	void write_Guard_in_file(Guards P1);

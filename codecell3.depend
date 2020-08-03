@@ -195,7 +195,7 @@
 	<cstring>
 	<iostream>
 
-1596258369 source:g:\class\coding projects\codecell\code\codecell\main.cpp
+1596429522 source:g:\class\coding projects\codecell\code\codecell\main.cpp
 	"prisoner.h"
 	"staff.h"
 	"to_be_executed.h"
@@ -211,6 +211,7 @@
 	<string>
 	<cstring>
 	<iostream>
+	<windows.h>
 
 1596258369 g:\class\coding projects\codecell\code\codecell\include\prisoner.h
 	"people.h"
@@ -226,7 +227,7 @@
 1596258369 g:\class\coding projects\codecell\code\codecell\include\maximum_security_prisoner.h
 	"prisoner.h"
 
-1596377456 g:\class\coding projects\codecell\code\codecell\include\bookkeeper.h
+1596438350 g:\class\coding projects\codecell\code\codecell\include\bookkeeper.h
 	"prisoner.h"
 	"staff.h"
 	"to_be_executed.h"
@@ -235,6 +236,7 @@
 	"Maximum_security_prisoner.h"
 	"medium_security_prisoner.h"
 	"minimum_security_prisoner.h"
+	<string>
 
 1596258369 g:\class\coding projects\codecell\code\codecell\include\guards.h
 	"people.h"
@@ -276,7 +278,7 @@
 	"to_be_executed.h"
 	<iostream>
 
-1596390998 source:g:\class\coding projects\codecell\code\codecell\src\bookkeeper.cpp
+1596438368 source:g:\class\coding projects\codecell\code\codecell\src\bookkeeper.cpp
 	"prisoner.h"
 	"staff.h"
 	"to_be_executed.h"
@@ -293,4 +295,5 @@
 	<cstring>
 	<iostream>
 	<limits>
+	<algorithm>
 
