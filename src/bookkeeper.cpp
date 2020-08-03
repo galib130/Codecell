@@ -18,7 +18,7 @@
 using namespace std;
 void Bookkeeper::Open_book()
 {
-	std::cout<<"\nDo you want to Read(1) or Write(2)"<<std::endl;
+	std::cout<<"\nDo you want to Read(1) or Write(2) or search(3)"<<std::endl;
 	int x;
 	std::cin>>x;
 	if(x==1)
@@ -31,28 +31,28 @@ void Bookkeeper::Open_book()
 			cin>>x;
 			if(x==1)
 			{
-				read_maximum_security_prisoner();
+				read_maximum_security_prisoner(1);
 			}
 			else if(x==2)
 			{
-				read_medium_security_prisoner();
+				read_medium_security_prisoner(1);
 			}
 			else if(x==3)
 			{
-				read_minimum_security_prisoner();
+				read_minimum_security_prisoner(1);
 			}
 			else if(x==4)
 			{
-				read_To_be_Executed_from_file();
+				read_To_be_Executed_from_file(1);
 			}
 		}
 		else if(x==3)
 		{
-			read_Staff_in_file();
+			read_Staff_in_file(1);
 		}
 		else if(x==2)
 		{
-			read_Guard_in_file();
+			read_Guard_in_file(1);
 		}
 	}
 	else if(x==2)
@@ -72,6 +72,44 @@ void Bookkeeper::Open_book()
 			input_Staff();
 		}
 	}
+	else if(x==3)
+    {
+        std::cout<<"\nPrisoner(1), Guard(2) or Staff(3)"<<std::endl;
+       cin>>x;
+       if(x==2)
+       {
+           read_Guard_in_file(2);
+       }
+       else if(x==3)
+       {
+           read_Staff_in_file(2);
+       }
+       else if(x==1)
+       {
+
+			std::cout<<"\nMaximum security(1), Medium security(2), Minimum security(3) or Executee(4)"<<std::endl;
+			cin>>x;
+
+			if(x==4)
+            {
+              read_To_be_Executed_from_file(2);
+            }
+            if(x==1)
+            {
+                read_maximum_security_prisoner(2);
+            }
+            else if(x==2)
+            {
+                read_medium_security_prisoner(2);
+            }
+            else if(x==3)
+            {
+                read_minimum_security_prisoner(2);
+            }
+
+       }
+
+    }
 }
 
 // comparison functions
@@ -725,9 +763,18 @@ void Bookkeeper:: write_minimum_security_prisoner(Minimum_security_prisoner P1)
 
 
 
-void Bookkeeper::read_Staff_in_file()
+void Bookkeeper::read_Staff_in_file(int mode)
 {
+
 	ifstream read_executed("Staff_list.txt");
+	char identification[11];
+
+	if (mode==2)
+    {
+        cout<<"ID: ";
+
+  cin>>identification;
+    }
 	while(1)
 	{
 		string key_string;
@@ -807,16 +854,32 @@ void Bookkeeper::read_Staff_in_file()
 
 		Staff P1(fname,lname,A, g,ad,p,o,hs,r,id,rank,Profession, shift,  psyche,requests, experience,salary);
 
+		if(mode==1)
 		P1.staff_getinfo();
+        else if(mode==2)
+        {
+         if(strcmp(identification, id) == 0)
+		{P1.staff_getinfo();
+		  break;
+		}
+
+        }
 
 		std::cout<<"\n\n"<<std::endl;
 	}
 
 }
 
-void Bookkeeper::read_Guard_in_file()
+void Bookkeeper::read_Guard_in_file(int mode)
 {
+	char identification[11];
 	ifstream read_executed("Guards_list.txt");
+	if (mode==2)
+    {
+        cout<<"ID: ";
+
+  cin>>identification;
+    }
 	while(1)
 	{
 		string key_string;
@@ -902,18 +965,35 @@ void Bookkeeper::read_Guard_in_file()
 
 		Guards P1(fname,lname,A,g,ad,p, o,hs,r,	id, unit, rank,shift,post,ammunition_status,psyche_evaluation, salary, experience);
 
+		if(mode==1)
 		P1.guard_getinfo();
+        else if(mode==2)
+        {
+         if(strcmp(identification, id) == 0)
+		{P1.guard_getinfo();
+		  break;
+		}
 
+        }
 		std::cout<<"\n\n"<<std::endl;
+
 	}
 
 }
 
 
-void Bookkeeper::read_To_be_Executed_from_file()
+void Bookkeeper::read_To_be_Executed_from_file(int mode)
 {
+	char identification[11];
 	ifstream read_executed("execution_list.txt");
-	while(1)
+	if (mode==2)
+    {
+        cout<<"ID: ";
+
+  cin>>identification;
+    }
+
+   while(1)
 	{
 		string key_string;
 
@@ -1060,17 +1140,30 @@ void Bookkeeper::read_To_be_Executed_from_file()
 
 		To_be_Executed P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status,last_meal,execution_date);
 
+	if(mode==1)
 		P1.To_be_Executed_getinfo();
 
+        if(mode==2)
+        {
+            if(strcmp(identification, id) == 0)
+                P1.To_be_Executed_getinfo();
+        }
 		std::cout<<"\n\n"<<std::endl;
 	}
 
 }
 
-void Bookkeeper::read_maximum_security_prisoner()
+void Bookkeeper::read_maximum_security_prisoner(int mode)
 {
-	ifstream read_executed("Maximum_security_list.txt");
-	while(1)
+ifstream read_executed("Maximum_security_list.txt");
+	char identification[11];
+	if(mode==2)
+    {
+        cout<<"ID: ";
+        cin>>identification;
+    }
+
+    while(1)
 	{
 		string key_string;
 
@@ -1219,16 +1312,29 @@ void Bookkeeper::read_maximum_security_prisoner()
 
 		Maximum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
 
+	if(mode==1)
 		P1.get_prisoner_info();
-
+        else if(mode==2)
+        {
+          if(strcmp(identification, id) == 0)
+            {P1.get_prisoner_info();}
+        }
 		std::cout<<"\n\n"<<std::endl;
-	}
+
+		}
 
 }
 
-void Bookkeeper::read_medium_security_prisoner()
+void Bookkeeper::read_medium_security_prisoner(int mode)
 {
+	char identification[11];
 	ifstream read_executed("Medium_security_list.txt");
+	if(mode==2)
+    {
+        cout<<"ID: ";
+        cin>>identification;
+    }
+
 	while(1)
 	{
 		string key_string;
@@ -1377,17 +1483,28 @@ void Bookkeeper::read_medium_security_prisoner()
 		getline (read_executed, key_string);
 		Medium_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
 
-		P1.get_prisoner_info();
-
+         		if(mode==1)
+        P1.get_prisoner_info();
+        else if(mode==2)
+        {
+            if(strcmp(identification,id)==0)
+                P1.get_prisoner_info();
+        }
 		std::cout<<"\n\n"<<std::endl;
 	}
 
 }
 
-void Bookkeeper::read_minimum_security_prisoner()
+void Bookkeeper::read_minimum_security_prisoner(int mode)
 {
+	char identification[11];
 	ifstream read_executed("Minimum_security_list.txt");
-	while(1)
+	if(mode==2)
+    {
+        cout<<"ID: ";
+        cin>>identification;
+    }
+    while(1)
 	{
 		string key_string;
 
@@ -1534,11 +1651,17 @@ void Bookkeeper::read_minimum_security_prisoner()
 
 		getline (read_executed, key_string);
 		Minimum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
-
+        if(mode==1)
 		P1.get_prisoner_info();
 
+        else if(mode==2)
+        {
+            if(strcmp(identification,id)==0)
+                P1.get_prisoner_info();
+        }
 		std::cout<<"\n\n"<<std::endl;
-	}
+
+        }
 
 }
 
