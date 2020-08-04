@@ -32,13 +32,13 @@ class Bookkeeper
 	void write_medium_security_prisoner(Medium_security_prisoner P1);
 	void write_minimum_security_prisoner(Minimum_security_prisoner P1);
 	//Readers
-	void read_Staff_in_file(int mode);
-	void read_Guard_in_file(int mode);
+	void read_Staff_in_file();
+	void read_Guard_in_file();
 
-	void read_To_be_Executed_from_file(int mode);
-	void read_maximum_security_prisoner(int mode);
-	void read_medium_security_prisoner(int mode);
-	void read_minimum_security_prisoner(int mode);
+	void read_To_be_Executed_from_file();
+	void read_maximum_security_prisoner();
+	void read_medium_security_prisoner();
+	void read_minimum_security_prisoner();
 
 };
 
