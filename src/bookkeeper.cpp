@@ -18,7 +18,6 @@
 using namespace std;
 void Bookkeeper::Open_book()
 {
-
 	std::cout<<"\nDo you want to Read(1) or Write(2) or search(3)"<<std::endl;
 	int x;
 	std::cin>>x;
@@ -768,7 +767,6 @@ void Bookkeeper::read_Staff_in_file(int mode)
 {
 
 	ifstream read_executed("Staff_list.txt");
-	int flag=0;
 	char identification[11];
 
 	if (mode==2)
@@ -857,30 +855,24 @@ void Bookkeeper::read_Staff_in_file(int mode)
 		Staff P1(fname,lname,A, g,ad,p,o,hs,r,id,rank,Profession, shift,  psyche,requests, experience,salary);
 
 		if(mode==1)
-		{P1.staff_getinfo();
-		  std::cout<<"\n\n"<<std::endl;
-		}
+		P1.staff_getinfo();
         else if(mode==2)
         {
          if(strcmp(identification, id) == 0)
 		{P1.staff_getinfo();
-		   flag=1;
 		  break;
 		}
 
         }
 
-
+		std::cout<<"\n\n"<<std::endl;
 	}
-	if(mode==2&&flag!=1)
-        cout<<"Nothing found"<<endl;
 
 }
 
 void Bookkeeper::read_Guard_in_file(int mode)
 {
 	char identification[11];
-	int flag=0;
 	ifstream read_executed("Guards_list.txt");
 	if (mode==2)
     {
@@ -974,24 +966,18 @@ void Bookkeeper::read_Guard_in_file(int mode)
 		Guards P1(fname,lname,A,g,ad,p, o,hs,r,	id, unit, rank,shift,post,ammunition_status,psyche_evaluation, salary, experience);
 
 		if(mode==1)
-		{P1.guard_getinfo();
-		std::cout<<"\n\n"<<std::endl;
-		}
+		P1.guard_getinfo();
         else if(mode==2)
         {
          if(strcmp(identification, id) == 0)
-		{
-         P1.guard_getinfo();
-		 flag=1;
+		{P1.guard_getinfo();
 		  break;
 		}
 
         }
-
+		std::cout<<"\n\n"<<std::endl;
 
 	}
-	if(mode==2&&flag!=1)
-        cout<<"Nothing Found"<<endl;
 
 }
 
@@ -999,7 +985,6 @@ void Bookkeeper::read_Guard_in_file(int mode)
 void Bookkeeper::read_To_be_Executed_from_file(int mode)
 {
 	char identification[11];
-	int flag=0;
 	ifstream read_executed("execution_list.txt");
 	if (mode==2)
     {
@@ -1156,29 +1141,22 @@ void Bookkeeper::read_To_be_Executed_from_file(int mode)
 		To_be_Executed P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status,last_meal,execution_date);
 
 	if(mode==1)
-		{P1.To_be_Executed_getinfo();
-		 	std::cout<<"\n\n"<<std::endl;
-        }
-
+		P1.To_be_Executed_getinfo();
 
         if(mode==2)
         {
             if(strcmp(identification, id) == 0)
-                {P1.To_be_Executed_getinfo();
-                  flag=1;
-                  break;
-                }
+                P1.To_be_Executed_getinfo();
         }
+		std::cout<<"\n\n"<<std::endl;
 	}
-     if(mode==2&&flag!=1)
-        cout<<"Nothing Found"<<endl;
+
 }
 
 void Bookkeeper::read_maximum_security_prisoner(int mode)
 {
 ifstream read_executed("Maximum_security_list.txt");
 	char identification[11];
-	int flag=0;
 	if(mode==2)
     {
         cout<<"ID: ";
@@ -1335,29 +1313,21 @@ ifstream read_executed("Maximum_security_list.txt");
 		Maximum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
 
 	if(mode==1)
-		{P1.get_prisoner_info();
-		 std::cout<<"\n\n"<<std::endl;
-		}
+		P1.get_prisoner_info();
         else if(mode==2)
         {
           if(strcmp(identification, id) == 0)
-            {P1.get_prisoner_info();
-             flag=1;
-             break;
-            }
+            {P1.get_prisoner_info();}
         }
-
+		std::cout<<"\n\n"<<std::endl;
 
 		}
 
-     if(mode==2&&flag!=1)
-        cout<<"Nothing Found"<<endl;
 }
 
 void Bookkeeper::read_medium_security_prisoner(int mode)
 {
 	char identification[11];
-	int flag=0;
 	ifstream read_executed("Medium_security_list.txt");
 	if(mode==2)
     {
@@ -1514,26 +1484,20 @@ void Bookkeeper::read_medium_security_prisoner(int mode)
 		Medium_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
 
          		if(mode==1)
-        {P1.get_prisoner_info();
-         std::cout<<"\n\n"<<std::endl;
-        }
+        P1.get_prisoner_info();
         else if(mode==2)
         {
             if(strcmp(identification,id)==0)
-                {P1.get_prisoner_info();
-                 flag=1;
-                 break;
-                }
+                P1.get_prisoner_info();
         }
+		std::cout<<"\n\n"<<std::endl;
 	}
-  if(mode==2&&flag!=1)
-    cout<<"Nothing Found"<<endl;
+
 }
 
 void Bookkeeper::read_minimum_security_prisoner(int mode)
 {
 	char identification[11];
-	int flag=0;
 	ifstream read_executed("Minimum_security_list.txt");
 	if(mode==2)
     {
@@ -1688,23 +1652,16 @@ void Bookkeeper::read_minimum_security_prisoner(int mode)
 		getline (read_executed, key_string);
 		Minimum_security_prisoner P1(fname,lname,A,g,ad,p,o,hs,r,id,Crime,Sentence,Location_of_cell,Admission_date,Release_date, Guard_statement,Staff_statement,solitary_confinement_visits,Overall_evaluation,Visitor_Info,General_request,Psychological_status,Job_status,Jailmate,Lawyer,Evidence_info,Conviction_date,Bail_amount,Appeal_for_release_status,Utility_status, prescription, Visiting_status);
         if(mode==1)
-		{P1.get_prisoner_info();
-		std::cout<<"\n\n"<<std::endl;
-		}
+		P1.get_prisoner_info();
 
         else if(mode==2)
         {
             if(strcmp(identification,id)==0)
-               {
-                 P1.get_prisoner_info();
-                 flag=1;
-                 break;
-               }
+                P1.get_prisoner_info();
         }
+		std::cout<<"\n\n"<<std::endl;
 
         }
-        if(mode==2&&flag!=1)
-            cout<<"Nothing found"<<endl;
 
 }
 
